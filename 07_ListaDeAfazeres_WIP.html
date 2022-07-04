@@ -1,0 +1,160 @@
+<!DOCTYPE hmtl>
+<html lang="pt-br">
+	<head>
+
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Lista de afazeres</title>
+		<style>
+
+			/*Estilos globais*/
+
+			* {margin: 0; padding: 0}
+
+			body {
+				max-width: 900px;
+				min-width: 865px;
+				margin: 2rem auto;
+
+			}
+
+			.wrapper {
+				display: flex;
+				flex-direction: column;
+				width: 100%;
+				padding: 1rem;
+				border-radius: 10px 0;
+			}
+
+			.fontePadrao {
+				font-family: 'Calibri', arial;
+				font-size: 1rem;
+			}
+
+			.main {
+				padding: 1rem;
+				color: white;
+				text-transform: uppercase;
+				text-decoration: underline;
+				background-color: #87CEFA;
+			}
+
+			/*Estilos da lista*/
+
+			.lista {
+				box-sizing: border-box;
+				font-family: 'Arial Black', Arial;
+				display: flex;
+				justify-content: justify;
+				margin: .5rem;
+				padding: .5rem;
+				heigth: auto;
+
+				background-color: #FFE4E1;
+
+			}
+
+			.lista:hover {
+				transform: scale(1.1);
+				transition: ease-in 0.2s all;
+				border-radius: 0 10px;
+				box-shadow: 2px 2px 5px;
+				background-color: #AFFFFF;
+			}
+
+			/*Estilo dos Botões*/
+
+			.btnEstiloPadrao {
+				height: 25px;
+				border-style: none;
+			}
+
+			#novaAtividade {
+				border: 1px solid lightgray;
+				padding: 5px auto;
+			}
+
+			#novaAtividade:hover {
+				background-color: lightgray;
+			}
+
+			#limpaLista:hover {
+				background-color: lightgray;
+			}
+
+			#descricaoAtividade {
+				height: 25px;
+			}
+
+			.btnAdicionar {
+				background-color: lawngreen;
+				width: 25px;
+
+			}
+
+			.btnAdicionar:hover {
+				background-color: lime;
+			}
+
+		</style>
+	</head>
+
+	<body>
+		<section class="wrapper">
+			<section class="main">
+					<h1>atividades - <i>to do</i> List</h1>
+				<div class="incluirAfazer">
+					<button id="novaAtividade" class="fontePadrao btnEstiloPadrao">Nova atividade</button>
+					<input id="descricaoAtividade" type="text" placeholder="Descreva a nova atividade">
+					<input id="adicionarAtividade" class="btnAdicionar btnEstiloPadrao" type="button" value="+">
+				</div>
+			</section>
+			<ul id="minhaUL">
+			</ul>
+		</section>
+
+		<script>
+			let btnNovaAtividade = document.querySelector('#novaAtividade');
+			let inputDescricaoAtividade = document.querySelector('#descricaoAtividade');
+			let inputAdicionarAtividade = document.querySelector('#adicionarAtividade');
+			let novoItemDaLista = document.querySelector('#minhaUL');
+
+			inputDescricaoAtividade.hidden = true;
+			inputAdicionarAtividade.hidden = true;
+
+			btnNovaAtividade.addEventListener('click', novaAtividade);
+
+			//Habilita botões para adicionar nova atividade
+			function novaAtividade (){
+				inputDescricaoAtividade.hidden = false;
+				inputAdicionarAtividade.hidden = false;
+				inputDescricaoAtividade.focus();
+			};
+
+			inputAdicionarAtividade.addEventListener('click', adicionarAtividade);
+
+			//Valida se tem atividade a ser adicionada
+			function adicionarAtividade () {
+				let incluirNovaAtividade = inputDescricaoAtividade.value;
+				let itemNovo = document.createElement('li');
+				let descricaoTxt = document.getElementById('descricaoAtividade').value;
+				let itemNovoTxt = document.createTextNode(descricaoTxt);
+				itemNovo.className = "lista";
+				itemNovo.appendChild(itemNovoTxt);
+					if (incluirNovaAtividade !== "") {
+						document.getElementById('minhaUL').appendChild(itemNovo);
+						inputDescricaoAtividade.value = "";
+						inputDescricaoAtividade.focus();
+					} else {
+						alert("Descreva a atividade!");
+						inputDescricaoAtividade.focus();
+						}
+				}
+
+			//FALTA ADICIONAR A FUNCÃO DE APAGAR A LISTA!!!
+
+			
+
+		</script>
+	</body>
+</html>
