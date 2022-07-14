@@ -1,15 +1,26 @@
-let ligaDesliga = document.querySelector('#ligaDesliga');
-let bulboAceso = document.querySelector('#bulboAceso');
+let jsLp = {
 
-bulboAceso.hidden = true;
-ligaDesliga.onclick = function() {
-let ligarLuz = bulboAceso.hidden;
+onoff : null,
+bulb : null,
 
-if(ligarLuz === true) {
-	bulboAceso.hidden = false;
-	ligaDesliga.textContent = 'Desligar';
-} else {
-	bulboAceso.hidden = true;
-	ligaDesliga.textContent = 'Ligar';
-	}
+init : () => {
+	jsLp.onoff = document.querySelector('#onOff');
+	jsLp.bulb = document.querySelector('#bulb');
+
+	
+	jsLp.onoff.onclick = jsLp.toggle;
+	jsLp.bulb.hidden = true;
+},
+
+toggle : () => {
+	if(jsLp.bulb.hidden === true) {
+		jsLp.bulb.hidden = false;
+		jsLp.onoff.textContent = 'Turn Off';
+	} else {
+		jsLp.bulb.hidden = true;
+		jsLp.onoff.textContent = 'Turn On';
+	};
+},
+
 }
+window.addEventListener('load', jsLp.init);
