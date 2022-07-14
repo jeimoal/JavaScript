@@ -1,65 +1,83 @@
-			* {margin, padding: 0}
+/*general*/
 
-			body {
-				max-width: 600px;
-				min-width: 300px;
-				margin: 2rem auto;
+* {margin: 0; padding: 0}
 
-			}
+html, body {
+	height: 100%;
+}
 
-			h1 {
-				text-align: center;
-			}
+h1 {
+	text-align: center;
+	text-transform: capitalize;
+	overflow: hidden;
+}
 
-			.main {
-				display: flex;
-				justify-content: center;
-				align-items: center;
-			}
+#wrapper {
+	height: 50%;
+}
 
-			/*Lamp shapes*/
+.main {
+	position: relative;
+	height: 95%;
+	width: 80%;
+}
 
-			.bulbo {
-				height: 220px;
-				width: 200px;
-				border-radius: 50%;
-				border: 1px solid black;
-			}
+/*utilities*/
 
-			.bulboAceso {
-				position: absolute;
-				height: 220px;
-				width: 200px;
-				border-radius: 50%;
-				background-color: yellow;
-				box-shadow: 0px 0px 50px yellow;
-			}
+.flxCntr {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
 
+.flxClCntr {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
 
-			.base {
-				position: fixed;
-				transform: translate(0, 125px);
-				border: 1px solid black;
-			}
+/*lamp shapes*/
 
-			.baseShapes {
-				height: 50px;
-				width: 90px;
-				border-radius: 10px 10px 30px 30px;
-				background-color: lightgray;
-			}
+.bulbOff {
+	height: 220px;
+	width: 200px;
+	border-radius: 50%;
+	border: 1px solid gray;
+}
 
-			.baseMenor {
-				height: 10px;
-				width: 40px;
-				transform: translate(0, 155px);
-				border-radius: 10px 10px 30px 30px;
-				background-color: gray;
-			}
+.bulb {
+	position: absolute;
+	height: 220px;
+	width: 200px;
+	border-radius: 50%;
+	background-color: yellow;
+	box-shadow: 0px 0px 50px yellow;
+}
 
-			/*Botão*/
+.baseShape {
+	position: absolute;
+	top: 72.5%;
+	height: 50px;
+	width: 90px;
+	border: 1px solid gray;
+	border-radius: 10px 10px 30px 30px;
+	background-color: lightgray;
+}
 
-			.toogle {
-				position: absolute;
-				transform: translate(0, 250px);
-			}
+.baseSmall {
+	position: absolute;
+	top: 84.2%;
+	height: 10px;
+	width: 40px;
+	border: 1px solid gray;
+	border-radius: 10px 10px 30px 30px;
+	background-color: gray;
+}
+
+/*button layout*/
+
+.toogle {
+	position: absolute;
+	top: 10%;
+}
